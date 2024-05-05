@@ -1,0 +1,91 @@
+@page
+@model CreateAccountModel
+@{
+    ViewData["Title"] = "Create New Account";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title style="text-align: center">@ViewData["Title"]</title>
+    <link rel="stylesheet" id="theme-link" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Стили для страницы создания новой категории */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(https://cdn.dribbble.com/users/1593449/screenshots/12156817/media/fc7a1ebe2c20a2575a0872126c6259f9.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 20px;
+            
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 30px;
+        }
+        .container :hover
+        {
+            transition: 1s;
+            box-shadow: 1px 1px 10px blueviolet;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .btn-cancel {
+            margin-right: 10px;
+            background-color: rgb(229, 40, 40);
+        }
+            .btn-theme {
+            background-color: #17a2b8;
+            color: #fff;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="form-container">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="AccountDto.AccountNumber">Account AccountNumber:</label>
+                <input asp-for="AccountDto.AccountNumber" class="form-control"/>
+                <span asp-validation-for="AccountDto.AccountNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountDto.Balance">Account Balance:</label>
+                <input asp-for="AccountDto.Balance" class="form-control"/>
+                <span asp-validation-for="AccountDto.Balance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountDto.AccountType">Account AccountType:</label>
+                <input asp-for="AccountDto.AccountType" class="form-control"/>
+                <span asp-validation-for="AccountDto.AccountType" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="AccountDto.CustomerId"> CustomerId:</label>
+                <input asp-for= "AccountDto.CustomerId" class="form-control"/>
+                <span asp-validation-for="AccountDto.CustomerId" class="text-danger"></span>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Create Account</button>
+            <a asp-page="/Account/GetAccounts" class="btn btn-secondary btn-cancel">Cancel</a>
+        </form>
+    </div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

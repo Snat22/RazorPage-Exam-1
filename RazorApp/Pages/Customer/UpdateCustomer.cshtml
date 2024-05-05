@@ -1,0 +1,77 @@
+@page
+@model UpdateCustomerModel
+@{
+    ViewData["Title"] = "Update Customer";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(https://i.ytimg.com/vi/j12D_nv818c/maxresdefault.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: whitesmoke;
+         }
+
+        .container {
+            width: 500px;
+            margin: 10px ;
+            margin-right: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }.form-group label {
+            color: white;
+        }
+
+        .btn-cancel {
+            margin-right: 10px;
+            background-color: rgb(242, 51, 51);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">@ViewData["Title"]</h1>
+
+        <form method="post">
+            <input type="hidden" asp-for="Customer.Id" />
+
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="text" id="Name" class="form-control" asp-for="Customer.Name" required>
+                <span asp-validation-for="Customer.Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Address">Address</label>
+                <input type="text" id="Address" class="form-control" asp-for="Customer.Address" required>
+                <span asp-validation-for="Customer.Address" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="email" id="Email" class="form-control" asp-for="Customer.Email" required placeholder="Write Your Email">
+                <span asp-validation-for="Customer.Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="PhoneNumber">Phone Number</label>
+                <input type="tel" id="PhoneNumber" class="form-control" asp-for="Customer.PhoneNumber" required placeholder="+### - ### - ##">
+                <span asp-validation-for="Customer.PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update Customer</button>
+            <a asp-page="/Customer/GetCustomers" class="btn btn-secondary btn-cancel">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

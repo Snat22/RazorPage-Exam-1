@@ -1,0 +1,76 @@
+@page
+@model UpdateAccountModel
+@{
+    ViewData["Title"] = "Update Account";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+    <style>
+        /* Custom styles */
+        body {
+   body {
+            font-family: Arial, sans-serif;
+            background-image: url(https://avatars.mds.yandex.net/i?id=a70238dee58a22aff9128d7d7b3cd54a78cfd7ff-10411335-images-thumbs&n=13);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: whitesmoke;
+         }
+       }
+
+        .container {
+            max-width: 600px;
+            margin: 10px auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .btn-cancel {
+            margin-right: 10px;
+            background-color: rgb(242, 51, 51);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">@ViewData["Title"]</h1>
+
+        <form method="post">
+            <input type="hidden" asp-for="Account.Id" />
+
+            <div class="form-group">
+                <label for="AccountNumber">AccountNumber</label>
+                <input type="text" id="AccountNumber" class="form-control" asp-for="Account.AccountNumber" required>
+                <span asp-validation-for="Account.AccountNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Balance">Balance</label>
+                <input type="text" id="Balance" class="form-control" asp-for="Account.Balance" required>
+                <span asp-validation-for="Account.Balance" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="AccountType">AccountType</label>
+                <input type="AccountType" id="AccountType" class="form-control" asp-for="Account.AccountType" required>
+                <span asp-validation-for="Account.AccountType" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="CustomerId">CustomerId </label>
+                <input type="tel" id="CustomerId" class="form-control" asp-for="Account.CustomerId" required>
+                <span asp-validation-for="Account.CustomerId" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update Account</button>
+            <a asp-page="/Account/GetAccounts" class="btn btn-secondary btn-cancel">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+@page
+@model GetCustomerByIdModel
+@{
+    ViewData["Title"] = "Customer Details";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6b9ed;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .Customer-info {
+            border: 1px solid #ced4da;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .Customer-info h2 {
+            color: #007bff;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .Customer-info ul {
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .Customer-info li {
+            margin-bottom: 10px;
+        }
+
+        .alert-danger {
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        .btn-back {
+            margin-top: 20px;
+        }
+
+        .btn-back:hover {
+            background-color: #6c757d; /* Darker gray on hover */
+            border-color: #6c757d;
+        }
+
+        /* Additional Styles */
+        .btn-back:focus {
+            box-shadow: none; /* Remove box shadow on focus */
+        }
+
+        .btn-back:active {
+            transform: translateY(1px); /* Add slight downward movement on click */
+        }
+
+        .Customer-info h2:before {
+            content: "\1F4CD"; /* Unicode character for a folder icon */
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">@ViewData["Title"]</h1>
+
+        @if (Model.Customer != null)
+        {
+            <div class="Customer-info">
+                <h2>Customer Information</h2>
+                <ul>
+                    <li><strong>ID:</strong> @Model.Customer.Id</li>
+                    <li><strong>Customer Name:</strong> @Model.Customer.Name</li>
+                    <li><strong>Customer Address:</strong> @Model.Customer.Address</li>
+                    <li><strong>Customer Email:</strong> @Model.Customer.Email</li>
+                    <li><strong>Customer PhoneNumber:</strong> @Model.Customer.PhoneNumber</li>
+                </ul>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-danger">Customer not found.</div>
+        }
+
+        <a asp-page="/Customer/GetCustomers" class="btn btn-secondary btn-back">Back to Customers</a>
+    </div>
+
+    <!-- Optional: Add your custom JavaScript here -->
+    <script>
+        // Your custom JavaScript code goes here
+        console.log("JavaScript loaded!");
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
